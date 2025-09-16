@@ -32,7 +32,10 @@ public class Pizza
     }
 
     public string GetFormattedTotalPrice()
-    {
-        return GetTotalPrice().ToString("0.00");
-    }
+{
+    // Round the pizza price to the nearest whole number for UGX
+    long roundedPrice = (long)Math.Round(GetTotalPrice(), 0);
+    // Format it with commas for thousands and no decimals
+    return $"USh {roundedPrice:#,0}";
+}
 }
